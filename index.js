@@ -117,15 +117,25 @@ async function searchWeatherAPI(city){
 try{
      let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
     var jsonCon = await response.json();
+  
+    if(jsonCon?.cod=='404')
+     errorhandller();
+     else 
     render(jsonCon);
     }
 catch ( e ) {
-    console.log("Error: " + e.description );
-    errorText.textContent=`Error: ${e.description}`;
+  errorhandller();
+  console.log("Error: " + e.description );
+//   errorText.textContent=`Error: ${e.description}`;
+  }
+}
+
+function errorhandller(){
+   
+   
     loading.classList.remove('active');
     error.classList.add('active');
     wraper.classList.add('active-error');
-  }
 }
 
 function render(jsoncon){

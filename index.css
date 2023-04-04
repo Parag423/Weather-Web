@@ -234,13 +234,22 @@ p{
     gap:1rem;
     border-radius: 2rem;
     transform: scale(0);
-    padding: 1.3rem;
+  
+    width: 20rem;
     
 }
 
 .close img{
     width: 2.5rem;
+    height: 2.5rem;
     cursor: pointer;
+    transform: translateX(-1rem) translateY(1rem);
+}
+
+.error-text img{
+    width: 100%;
+  
+   
 }
 
 .active{
